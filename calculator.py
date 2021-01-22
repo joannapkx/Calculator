@@ -69,8 +69,40 @@ def pro():
                  print("1.Normal")
                  print("2.Quadraic Equation")
                  e= input()
+                 if e == "1":
+                     xa =float(input("Enter first data in the x axis"))
+                     xb =float(input("Enter second data in the x axis"))
+                     xc = float(input("Enter third data in the x axis"))
+                     xd =float(input("Enter fourth data in the x axis"))
+                     ya =float(input("Enter first data in the y axis"))
+                     yb =float(input("Enter second data in the y axis"))
+                     yc =float(input("Enter third data in the y axis"))
+                     yd= float(input("Enter fourth data in the y axis"))
+                     plt.plot([xa,xb,xc,xd], [ya,yb,yc,yd])
+                     plt.title("Plot")
+                     plt.show() #Remember this when making a plot!
+                     reset()
+                 elif e == "2":
+                    y=int( input("Y intercept?"))
+                    x=int(input("X intercept?"))
+                    funcx=int(input("Any coefficent in the x infront of the equation? If not, its 1"))
+                    funcy=int(input("Whats the coefficient in the middle part/number of the equation?"))
+                    aos= (axis(funcx,funcy))   
+                    print ("Axis of symmetry", aos) #print () is needed to call a function
+                    print("For  minimum point, substitute the axis of symmetry to x")
+                    print("For maximum point")
+                    up= int(input("The coeffcient of the last number of the equation"))
+                    mid=int(input(" The coefficient of the number in the middle of the equation"))
+                    dow=int(input("The coefficient of the first number in the front of the equation"))
+                    print(max(dow,mid,up))
+
              elif d == "2":
-                   print ("Is there a fifth array?")
+                   print("Write the labels:")
+                   la=input()
+                   lb=input()
+                   lc=input()
+                   ld=input()
+                   print ("Is there a fifth?")
                    g=input()
                    if g == "yes":
                          aa=input("Enter first array:")
@@ -78,10 +110,11 @@ def pro():
                          ac=input("Enter third array:")
                          ad=input("Enter fourth array:")
                          ae=input("Enter fifth array:")
+                         le=input("Enter fifth label:")
                          sizes = ([aa, ab, ac ,ad, ae])
+                         labels=([la,lb,lc,ld,le])       
                          fig1, ax1 = plt.subplots()
-                         ax1.pie (sizes)
-                         plt.pie(sizes)
+                         ax1.pie (sizes,labels=labels)
                          plt.show() 
                    else:   
                        aa=input("Enter first array:")
@@ -89,36 +122,12 @@ def pro():
                        ac=input("Enter third array:")
                        ad=input("Enter fourth array:")
                        sizes = ([aa, ab, ac ,ad])
+                       labels=([la,lb,lc,ld])
                        fig1, ax1 = plt.subplots()
-                       ax1.pie (sizes)
-                       plt.pie(sizes)
+                       ax1.pie (sizes,labels=labels)
                        plt.show() 
-             if e == "1":
-                 xa =float(input("Enter first data in the x axis"))
-                 xb =float(input("Enter second data in the x axis"))
-                 xc = float(input("Enter third data in the x axis"))
-                 xd =float(input("Enter fourth data in the x axis"))
-                 ya =float(input("Enter first data in the y axis"))
-                 yb =float(input("Enter second data in the y axis"))
-                 yc =float(input("Enter third data in the y axis"))
-                 yd= float(input("Enter fourth data in the y axis"))
-                 plt.plot([xa,xb,xc,xd], [ya,yb,yc,yd])
-                 plt.title("Plot")
-                 plt.show() #Remember this when making a plot!
-                 reset()
-             elif e == "2":
-                y=int( input("Y intercept?"))
-                x=int(input("X intercept?"))
-                funcx=int(input("Any coefficent in the x infront of the equation? If not, its 1"))
-                funcy=int(input("Whats the coefficient in the middle part/number of the equation?"))
-                aos= (axis(funcx,funcy))   
-                print ("Axis of symmetry", aos) #print () is needed to call a function
-                print("For  minimum point, substitute the axis of symmetry to x")
-                print("For maximum point")
-                up= int(input("The coeffcient of the last number of the equation"))
-                mid=int(input(" The coefficient of the number in the middle of the equation"))
-                dow=int(input("The coefficient of the first number in the front of the equation"))
-                print(max(dow,mid,up))
+
+
 #Actual running
 pro()        
 
